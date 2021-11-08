@@ -44,7 +44,9 @@ public class FirstServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html;charset=utf-8");
 		PrintWriter out = response.getWriter();
-		response.addHeader("Refresh", "1;url=second");
+		out.print("<script type='text/javascript'>");
+		out.print("location.href='second';");
+		out.print("</script>");
 	}
 
 	/**

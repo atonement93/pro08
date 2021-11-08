@@ -45,7 +45,7 @@ public class SecondServlet extends HttpServlet {
 		response.setContentType("text/html;charset=utf-8");
 		PrintWriter out = response.getWriter();
 		out.println("<html><body>");
-		out.println("refresh를 이용한 redirect 실습 - 나오면 성공이다");
+		out.println("location을 이용한 redirect 실습 - 나오면 성공이다");
 		out.println("</body></html>");
 	}
 

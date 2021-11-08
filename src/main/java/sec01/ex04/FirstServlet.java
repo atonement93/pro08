@@ -1,8 +1,9 @@
-package sec01.ex03;
+package sec01.ex04;
 
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,16 +12,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class SecondServlet
+ * Servlet implementation class FirstServlet
  */
-//@WebServlet("/second")
-public class SecondServlet extends HttpServlet {
+@WebServlet("/first")
+public class FirstServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
     /**
      * Default constructor. 
      */
-    public SecondServlet() {
+    public FirstServlet() {
         // TODO Auto-generated constructor stub
     }
 
@@ -42,11 +43,10 @@ public class SecondServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("utf-8");
 		response.setContentType("text/html;charset=utf-8");
-		PrintWriter out = response.getWriter();
-		out.println("<html><body>");
-		out.println("location을 이용한 redirect 실습 - 나오면 성공이다");
-		out.println("</body></html>");
+		RequestDispatcher dispatch = request.getRequestDispatcher("second?name=hyun");
+		dispatch.forward(request, response);
 	}
 
 	/**

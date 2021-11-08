@@ -1,4 +1,4 @@
-package sec01.ex03;
+package sec01.ex04;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class SecondServlet
  */
-//@WebServlet("/second")
+@WebServlet("/second")
 public class SecondServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -44,8 +44,11 @@ public class SecondServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html;charset=utf-8");
 		PrintWriter out = response.getWriter();
+		String name = request.getParameter("name");
 		out.println("<html><body>");
-		out.println("location을 이용한 redirect 실습 - 나오면 성공이다");
+		out.println("이름:"+name);
+		out.println("<br>");
+		out.println("dispatch을 이용한 forward 실습 - 나오면 성공이다");
 		out.println("</body></html>");
 	}
 

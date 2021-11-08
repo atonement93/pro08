@@ -1,4 +1,4 @@
-package sec01.ex01;
+package sec01.ex03;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -11,16 +11,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class SecondServlet
+ * Servlet implementation class FirstServlet
  */
-//@WebServlet("/second")
-public class SecondServlet extends HttpServlet {
+@WebServlet("/first")
+public class FirstServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
     /**
      * Default constructor. 
      */
-    public SecondServlet() {
+    public FirstServlet() {
         // TODO Auto-generated constructor stub
     }
 
@@ -44,9 +44,7 @@ public class SecondServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html;charset=utf-8");
 		PrintWriter out = response.getWriter();
-		out.println("<html><body>");
-		out.println("sendRedirect를 이용한 실습 - 나오면 성공이다");
-		out.println("</body></html>");
+		response.addHeader("Refresh", "1;url=second");
 	}
 
 	/**
